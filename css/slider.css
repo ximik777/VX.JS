@@ -1,0 +1,124 @@
+.slider {
+    padding: 3px 0;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.slider .slider_slide {
+    height: 4px;
+    border-radius: 2px;
+    background-color: #cfe2eb;
+}
+
+.slider .slider_amount {
+    height: 100%;
+    border-radius: 2px;
+    width: 100px;
+    background-color: #0f6e9a;
+}
+
+.slider .slider_handler {
+    background-color: #0f6e9a;
+    position: relative;
+    opacity: 0;
+    border-radius: 50%;
+    height: 0;
+    width: 0;
+    transition: width 80ms linear, height 80ms linear, margin-top 80ms linear, margin-left 80ms linear, opacity 150ms linear;
+}
+
+.slider:hover .slider_handler,
+.slider.active .slider_handler {
+    opacity: 1;
+}
+
+.slider_hint {
+    background: rgba(159, 197, 215, 0.8);
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 9999999;
+    padding: 4px 5px;
+    border-radius: 2px;
+    color: #0f6e9a;
+    margin-top: 4px;
+    opacity: 0;
+    transition: margin-top 100ms linear, opacity 150ms linear;
+    font-size: 11px;
+}
+
+.slider_hint.visible {
+    margin-top: 0;
+    opacity: 1;
+}
+
+.slider_hint:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(159, 197, 215, 0);
+    border-top-color: rgba(159, 197, 215, 0.8);
+    border-width: 5px;
+    margin-left: -5px;
+}
+
+.slider.slider_size_3 .slider_slide {
+    height: 5px;
+}
+
+.slider.slider_size_3 .slider_handler {
+    margin-top: -2px;
+    margin-left: 2px;
+}
+
+.slider.slider_size_3:hover .slider_handler,
+.slider.slider_size_3.active .slider_handler {
+    height: 12px;
+    width: 12px;
+    margin-top: -9px;
+    margin-left: -5px;
+}
+
+.slider.slider_size_2 .slider_slide {
+    height: 4px;
+}
+
+.slider.slider_size_2 .slider_handler {
+    margin-top: -2px;
+    margin-left: 2px;
+}
+
+.slider.slider_size_2:hover .slider_handler,
+.slider.slider_size_2.active .slider_handler {
+    height: 9px;
+    width: 9px;
+    margin-top: -7px;
+    margin-left: -4px;
+}
+
+.slider.slider_size_1 .slider_slide {
+    height: 3px;
+}
+
+.slider.slider_size_1 .slider_handler {
+    margin-top: -2px;
+    margin-left: 2px;
+}
+
+.slider.slider_size_1:hover .slider_handler,
+.slider.slider_size_1.active .slider_handler {
+    height: 7px;
+    width: 7px;
+    margin-top: -5px;
+    margin-left: -3px;
+}

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Color</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png"/>
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32"/>
+    <link type="text/css" rel="stylesheet" href="../css/example.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/buttons.css"/>
+    <script type="text/javascript" src="../js/core.js"></script>
+    <script type="text/javascript" src="../js/events.js"></script>
+    <script type="text/javascript" src="../js/dom.js"></script>
+    <script type="text/javascript">
+
+
+        function Color(R, G, B, A) {
+            A = A || 1;
+            this.hex2rgb = function (HEX) {
+
+                if (!/^\#?[\da-f]{6}$/i.test(HEX)) {
+                    return [0, 0, 0];
+                }
+                var c = (HEX.charAt(0) == "#") ? HEX.substring(1) : HEX;
+                return [
+                    parseInt(c.substring(0, 2), 16),
+                    parseInt(c.substring(2, 4), 16),
+                    parseInt(c.substring(4, 6), 16)
+                ];
+
+            };
+
+            this.componentToHex = function (c) {
+                var hex = c.toString(16);
+                return hex.length == 1 ? "0" + hex : hex;
+            };
+
+            this.rgb2hex = function (r, g, b) {
+                return "#" + this.componentToHex(r) + this.componentToHex(g) + this.componentToHex(b);
+            };
+
+
+            this.colorMerge = function (bg, color) {
+
+
+                console.log(color.r, color.g, color.b, color.a);
+                var new_color = {
+                    r: Math.round((1 - color.a) * bg.r + color.a * color.r),
+                    g: Math.round((1 - color.a) * bg.g + color.a * color.g),
+                    b: Math.round((1 - color.a) * bg.b + color.a * color.b)
+                };
+                return new Color(new_color.r, new_color.g, new_color.b);
+            };
+
+            if (typeof R == 'string') {
+                if (typeof G == 'number') {
+                    A = G;
+                }
+
+                var c = this.hex2rgb(R);
+                R = c[0];
+                G = c[1];
+                B = c[2];
+            }
+
+            this.r = R;
+            this.g = G;
+            this.b = B;
+            this.a = typeof A == "number" ? A : 1;
+
+            this.toRGB = function (color) {
+                if (!color) {
+                    return "rgb(" + this.r + ", " + this.g + ", " + this.b + ")";
+                }
+
+                var new_color = this.colorMerge(this, color);
+
+                return "rgb(" + new_color.r + ", " + new_color.g + ", " + new_color.b + ")";
+            };
+
+            this.toRGBA = function (color) {
+                if (!color) {
+                    return "rgba(" + this.r + ", " + this.g + ", " + this.b + ", " + this.a + ")";
+                }
+                var new_color = this.colorMerge(this, color);
+                return "rgb(" + new_color.r + ", " + new_color.g + ", " + new_color.b + ", 1)";
+
+            };
+
+            this.toHex = function (color) {
+                if (!color) {
+                    return this.rgb2hex(this.r, this.g, this.b);
+                }
+                var new_color = this.colorMerge(this, color);
+                return this.rgb2hex(new_color.r, new_color.g, new_color.b);
+            }
+
+        }
+
+
+        function res() {
+
+            var hex_ovner = ge('hex_ovner');
+            var hex_parent = ge('hex_parent');
+            var hex_der = ge('hex_der');
+            var hex_result = ge('hex_result');
+            hex_ovner.style.backgroundColor = hex_ovner.value;
+            hex_parent.style.backgroundColor = hex_parent.value;
+            hex_der.style.backgroundColor = hex_der.value;
+
+
+            var rgb_ovner = HEXtoRGB(hex_ovner.value);
+            var rgb_parent = HEXtoRGB(hex_parent.value);
+            var rgb_der = HEXtoRGB(hex_der.value);
+
+            ge('rgb_ovner').innerHTML = rgb_ovner.join(', ');
+            ge('rgb_parent').innerHTML = rgb_parent.join(', ');
+            ge('rgb_der').innerHTML = rgb_der.join(', ');
+
+
+            var res = [];
+            res.push(rgb_der[0] - rgb_ovner[0]);
+            res.push(rgb_der[1] - rgb_ovner[1]);
+            res.push(rgb_der[2] - rgb_ovner[2]);
+
+            res[0] = rgb_parent[0] + res[0];
+            res[1] = rgb_parent[1] + res[1];
+            res[2] = rgb_parent[2] + res[2];
+
+            res[0] = res[0] < 0 ? 0 : res[0];
+            res[1] = res[1] < 0 ? 0 : res[1];
+            res[2] = res[2] < 0 ? 0 : res[2];
+
+            ge('rgb_result').innerHTML = res.join(', ');
+            hex_result.value = rgbToHex(res[0], res[1], res[2]);
+            hex_result.style.backgroundColor = rgbToHex(res[0], res[1], res[2]);
+
+            setRgba(rgb_ovner);
+        }
+
+        function HEXtoRGB(HEX, isObject) {
+            if (!/^\#?[\da-f]{6}$/i.test(HEX)) {
+                return false;
+            }
+
+            var color = (HEX.charAt(0) == "#") ? HEX.substring(1) : HEX;
+
+            this.R = parseInt(color.substring(0, 2), 16);
+            this.G = parseInt(color.substring(2, 4), 16);
+            this.B = parseInt(color.substring(4, 6), 16);
+
+            return isObject ? {R: this.R, G: this.G, B: this.B} : [this.R, this.G, this.B];
+        }
+
+        function componentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
+
+        function rgba2hex(r, g, b, a) {
+            if (r > 255 || g > 255 || b > 255 || a > 255)
+                throw "Invalid color component";
+            return (256 + r).toString(16).substr(1) + ((1 << 24) + (g << 16) | (b << 8) | a).toString(16).substr(1);
+        }
+
+        function rgbaToHex(r, g, b, a, bg_c) {
+
+            var color = {r: r, g: g, b: b, a: a};
+            var bg = {r: bg_c, g: bg_c, b: bg_c};
+
+
+            var new_color = {
+                r: Math.round((1 - color.a) * bg.r + color.a * color.r),
+                g: Math.round((1 - color.a) * bg.g + color.a * color.g),
+                b: Math.round((1 - color.a) * bg.b + color.a * color.b)
+            };
+            return rgbToHex(new_color.r, new_color.g, new_color.b);
+        }
+
+
+        function setOpacity(id, r, g, b, a, bg) {
+            id = ge(id);
+            var hex = rgbaToHex(r, g, b, a, bg);
+            id.style.backgroundColor = hex;
+            id.innerHTML = hex;
+            id.innerHTML += '<br />';
+            id.innerHTML += '(' + r + ', ' + g + ', ' + b + ', ' + a + ')';
+        }
+
+        function setRgba(rgb) {
+
+            setOpacity('c100', rgb[0], rgb[1], rgb[2], 1, 255);
+            setOpacity('c90', rgb[0], rgb[1], rgb[2], 0.9, 255);
+            setOpacity('c80', rgb[0], rgb[1], rgb[2], 0.8, 255);
+            setOpacity('c70', rgb[0], rgb[1], rgb[2], 0.7, 255);
+            setOpacity('c60', rgb[0], rgb[1], rgb[2], 0.6, 255);
+            setOpacity('c50', rgb[0], rgb[1], rgb[2], 0.5, 255);
+            setOpacity('c40', rgb[0], rgb[1], rgb[2], 0.4, 255);
+            setOpacity('c30', rgb[0], rgb[1], rgb[2], 0.3, 255);
+            setOpacity('c20', rgb[0], rgb[1], rgb[2], 0.2, 255);
+            setOpacity('c10', rgb[0], rgb[1], rgb[2], 0.1, 255);
+
+            setOpacity('d100', rgb[0], rgb[1], rgb[2], 1, 0);
+            setOpacity('d90', rgb[0], rgb[1], rgb[2], 0.9, 0);
+            setOpacity('d80', rgb[0], rgb[1], rgb[2], 0.8, 0);
+            setOpacity('d70', rgb[0], rgb[1], rgb[2], 0.7, 0);
+            setOpacity('d60', rgb[0], rgb[1], rgb[2], 0.6, 0);
+            setOpacity('d50', rgb[0], rgb[1], rgb[2], 0.5, 0);
+            setOpacity('d40', rgb[0], rgb[1], rgb[2], 0.4, 0);
+            setOpacity('d30', rgb[0], rgb[1], rgb[2], 0.3, 0);
+            setOpacity('d20', rgb[0], rgb[1], rgb[2], 0.2, 0);
+            setOpacity('d10', rgb[0], rgb[1], rgb[2], 0.1, 0);
+
+        }
+
+    </script>
+    <style>
+
+        .opacity td {
+            height: 50px;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="label">#HEX OVNER:</div>
+<div class="labeled"><input type="text" id="hex_ovner" name="hex_ovner" value="#4b769f"/></div>
+<div class="labeleds" id="rgb_ovner"></div>
+<br class="cl"/>
+<div class="label">#HEX PARENT:</div>
+<div class="labeled"><input type="text" id="hex_parent" name="hex_parent" value="#0f6e9a"/></div>
+<div class="labeleds" id="rgb_parent"></div>
+<br class="cl"/>
+<div class="label">#HEX DER:</div>
+<div class="labeled"><input type="text" id="hex_der" name="hex_der" value=""/></div>
+<div class="labeleds" id="rgb_der"></div>
+<br class="cl"/>
+<div class="label">#HEX RESULT:</div>
+<div class="labeled"><input readonly="1" type="text" id="hex_result" name="hex_result" value=""/></div>
+<div class="labeleds" id="rgb_result"></div>
+<br class="cl"/>
+
+<div class="label"></div>
+<div class="labeled">
+    <div class="button_blue">
+        <button onclick="res()">Посчитать</button>
+    </div>
+</div>
+<br class="cl"/>
+
+<hr/>
+<br/>
+<table width="100%">
+    <tr>
+        <td>100%</td>
+        <td>90%</td>
+        <td>80%</td>
+        <td>70%</td>
+        <td>60%</td>
+        <td>50%</td>
+        <td>40%</td>
+        <td>30%</td>
+        <td>20%</td>
+        <td>10%</td>
+    </tr>
+    <tr class="opacity">
+        <td id="c100"></td>
+        <td id="c90"></td>
+        <td id="c80"></td>
+        <td id="c70"></td>
+        <td id="c60"></td>
+        <td id="c50"></td>
+        <td id="c40"></td>
+        <td id="c30"></td>
+        <td id="c20"></td>
+        <td id="c10"></td>
+    </tr>
+    <tr class="opacity">
+        <td id="d100"></td>
+        <td id="d90"></td>
+        <td id="d80"></td>
+        <td id="d70"></td>
+        <td id="d60"></td>
+        <td id="d50"></td>
+        <td id="d40"></td>
+        <td id="d30"></td>
+        <td id="d20"></td>
+        <td id="d10"></td>
+    </tr>
+</table>
+
+
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

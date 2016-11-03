@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SVG Path</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="shortcut icon" href="/site/images/favicon32test.ico?5"/>
+    <meta charset="utf-8">
+    <!--<link rel="shortcut icon" href="/site/favicon.png?3" type="image/png" />-->
+    <!--<link rel="icon" href="/site/favicon32.png?3" sizes="32x32" />-->
+    <link type="text/css" rel="stylesheet" href="../css/example.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/buttons.css"/>
+    <script type="text/javascript">
+
+        function convertToRelative() {
+            var xmlns = "http://www.w3.org/2000/svg";
+            var pathstring = document.getElementById("string_path").value;
+            var svg = document.createElementNS(xmlns, "svg");
+            document.body.appendChild(svg);
+            var path = document.createElementNS(xmlns, "path");
+            path.setAttribute('d', pathstring);
+            //var simple = svg.append("path").attr("d", pathstring);
+            //var path = simple.node();
+
+            function set(type) {
+                var args = [].slice.call(arguments, 1),
+                        rcmd = 'createSVGPathSeg' + type + 'Rel',
+                        rseg = path[rcmd].apply(path, args);
+                segs.replaceItem(rseg, i);
+            }
+
+            var dx, dy, x0, y0, x1, y1, x2, y2, segs = path.pathSegList;
+            for (var x = 0, y = 0, i = 0, len = segs.numberOfItems; i < len; i++) {
+                var seg = segs.getItem(i),
+                        c = seg.pathSegTypeAsLetter;
+                if (/[MLHVCSQTAZz]/.test(c)) {
+                    if ('x1' in seg) x1 = seg.x1 - x;
+                    if ('x2' in seg) x2 = seg.x2 - x;
+                    if ('y1' in seg) y1 = seg.y1 - y;
+                    if ('y2' in seg) y2 = seg.y2 - y;
+                    if ('x' in seg) dx = -x + (x = seg.x);
+                    if ('y' in seg) dy = -y + (y = seg.y);
+                    switch (c) {
+                        case 'M':
+                            set('Moveto', dx, dy);
+                            break;
+                        case 'L':
+                            set('Lineto', dx, dy);
+                            break;
+                        case 'H':
+                            set('LinetoHorizontal', dx);
+                            break;
+                        case 'V':
+                            set('LinetoVertical', dy);
+                            break;
+                        case 'C':
+                            set('CurvetoCubic', dx, dy, x1, y1, x2, y2);
+                            break;
+                        case 'S':
+                            set('CurvetoCubicSmooth', dx, dy, x2, y2);
+                            break;
+                        case 'Q':
+                            set('CurvetoQuadratic', dx, dy, x1, y1);
+                            break;
+                        case 'T':
+                            set('CurvetoQuadraticSmooth', dx, dy);
+                            break;
+                        case 'A':
+                            set('Arc', dx, dy, seg.r1, seg.r2, seg.angle, seg.largeArcFlag, seg.sweepFlag);
+                            break;
+                        case 'Z':
+                        case 'z':
+                            x = x0;
+                            y = y0;
+                            break;
+                    }
+                } else {
+                    if ('x' in seg) x += seg.x;
+                    if ('y' in seg) y += seg.y;
+                }
+                // store the start of a subpath
+                if (c == 'M' || c == 'm') {
+                    x0 = x;
+                    y0 = y;
+                }
+            }
+            path.setAttribute('d', path.getAttribute('d').replace(/Z/g, 'z'));
+            document.getElementById('result').innerHTML = resres(path.getAttribute('d'));
+        }
+
+        var colors = [
+            'e11d21',
+            'eb6420',
+            'fbca04',
+            '009800',
+            '006b75',
+            '207de5',
+            '0052cc',
+            '5319e7'
+        ];
+
+        function resres(text) {
+            return '<span>' + (text.replace(/([MLHVCSQTAZ])/gi, function (o) {
+                        var key = Math.floor(Math.random() * colors.length);
+                        return '</span><span style="color:#' + colors[key] + '"><b>' + o + '</b>';
+                    })) + '</span>';
+        }
+
+    </script>
+    <style type="text/css">
+
+        #result {
+            width: 700px;
+        }
+
+    </style>
+</head>
+
+<body>
+<h1>SVG Преобразование линий из абсолютного пути в относительный</h1>
+<div class="label">Путь:</div>
+<div class="labeled"><textarea autocomplete="off" name="path" style="width: 700px; height: 200px"
+                               id="string_path"></textarea></div>
+<br class="cl"/>
+<div class="label"></div>
+<div class="labeled">
+    <div class="button_blue">
+        <button onclick="convertToRelative()">Преобразовать</button>
+    </div>
+</div>
+<br class="cl"/>
+<div class="label">Результат:</div>
+<div class="labeled">
+    <div id="result"></div>
+</div>
+<br class="cl"/>
+
+
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

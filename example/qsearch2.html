@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>qSearch2</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png"/>
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32"/>
+    <link type="text/css" rel="stylesheet" href="../css/example.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/qsearch2.css"/>
+    <script type="text/javascript" src="../js/core.js"></script>
+    <script type="text/javascript" src="../js/ajax.js"></script>
+    <script type="text/javascript" src="../js/langs.js"></script>
+    <script type="text/javascript" src="../js/events.js"></script>
+    <script type="text/javascript" src="../js/dom.js"></script>
+    <script type="text/javascript" src="../js/cc.js"></script>
+    <script type="text/javascript" src="../js/qsearch2.js"></script>
+</head>
+
+<body>
+<div class="clear">
+    <input type="text" id="test3" name="test3" value=""/>
+    <input type="text" id="test" name="test" value=""/>
+</div>
+
+<div class="clear">
+    <input type="text" id="test4" name="test4" value=""/>
+    <input type="text" id="test2" name="test2" value=""/>
+
+</div>
+
+
+<script type="text/javascript">
+
+    var html1 = '<a href="{href}" class="whole">' +
+            '<div class="s_photo"><img src="{image_src}"></div>' +
+            '<div class="s_wide_title">' +
+            '{user_name}' +
+            '<div>{user_phone}</div>' +
+            '</div>' +
+            '</a>' +
+            '<a class="s_right_text" href="mailto:{email}">{email}</a>';
+
+
+    var agrm = '<a class="whole" href="{href}">' +
+            '<div class="agrm_num">{agrm_num}</div>' +
+            '<div class="s_title">{user_name}</div>' +
+            '</a>' +
+            '<a href="{href}" class="s_right_text">{user_phone}</a>';
+
+
+    var qArr = [
+        ['по номеру договора', 'agrm', 'Здесь Вы можете ввести номер договора', agrm],
+        ['по клиентам ф.и.о', 'clients_fio', 'Здесь Вы можете ввести имя клиента', html1],
+        ['по ip адресу', 'ip', 'Здесь Вы можете ввести ip адрес клиента', html1],
+        ['по ip адресу sw', 'ipsw', 'Здесь Вы можете ввести ip свича', html1],
+        ['по сотрудникам', 'employee', 'Здесь Вы можете ввести имя сотрудника', html1]
+    ];
+
+
+    //qArr = [];
+    var sss = null;
+    onDomReady(function () {
+
+        new qSearch(ge('test'), qArr, {});
+        new qSearch(ge('test2'), qArr, {menuRight: false});
+        new qSearch(ge('test3'), qArr, {right: false});
+        new qSearch(ge('test4'), qArr, {right: false, menuRight: false});
+
+
+    });
+
+</script>
+
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

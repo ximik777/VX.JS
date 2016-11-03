@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MessageBox</title>
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png" />
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32" />
+    <link type="text/css" rel="stylesheet" href="../css/common.css" />
+    <link type="text/css" rel="stylesheet" href="../css/buttons.css" />
+    <link type="text/css" rel="stylesheet" href="../css/boxes.css" />
+    <script type="text/javascript" src="../js/core.js"></script>
+    <script type="text/javascript" src="../js/langs.js"></script>
+    <script type="text/javascript" src="../js/events.js"></script>
+    <script type="text/javascript" src="../js/dom.js"></script>
+    <script type="text/javascript" src="../js/buttons.js"></script>
+    <script type="text/javascript" src="../js/ajax.js"></script>
+    <script type="text/javascript" src="../js/cc.js"></script>
+    <script type="text/javascript" src="../js/boxes.js"></script>
+</head>
+
+<body class="">
+<div class="button_blue">
+    <button id="mb1">MessageBox</button>
+</div>
+<br />
+<br />
+<div class="button_blue">
+    <button id="mb2" onclick="ExamplePopup();">Popup</button>
+</div>
+<br />
+<br />
+<div class="button_gray">
+    <button id="alertBox">Alert Box</button>
+</div>
+<br />
+<br />
+<div class="button_blue">
+    <button id="confirmBox">Confirm Box</button>
+</div>
+<br />
+<br />
+<div class="button_gray">
+    <button onclick="ShowBoxLoad()">Show Box</button>
+</div>
+<br />
+<br />
+<div class="button_gray">
+    <button onclick="showDoneBox('test')">Show Done Box</button>
+</div>
+<br />
+<br />
+<div class="button_gray">
+    <button onclick="showBandBox('test')">Show Band Box</button>
+</div>
+<br />
+<br />
+<div class="button_gray">
+    <button onclick="testLock()">testLock</button>
+</div>
+<br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br />
+
+
+<div class="button_blue">
+    <button onclick="ExampleMessageBox()">MessageBox</button>
+</div>
+<br />
+<br />
+<script type="text/javascript">
+    var mb1 = null,
+        mb2 = null;
+
+    function ExamplePopup(){
+        if (!mb2) mb2 = new MessageBox({
+            type: 'POPUP',
+            width: 420,
+            dark:true
+        });
+        var box = mb2;
+        box.content('1312312');
+        box.show();
+    }
+
+    function ExampleMessageBox() {
+        if (!mb1) mb1 = new MessageBox({
+            title: 'MessageBox',
+            width: 420,
+            fullPageLink: 'http://mail.ru/',
+            closeButton: true,
+            hideOnOutClick: true,
+            dark: true
+        });
+        var box = mb1;
+        box.removeButtons();
+
+        box.addButton({
+            label: 'Close',
+            style: 'button_no',
+            onClick: function () {
+                box.hide();
+            }
+        });
+        box.addButton({
+            label: 'AlertBox',
+            onClick: function () {
+                AlertBox('AlertBox', 'Error!', null);
+            }
+        });
+        box.addControlsText('test');
+        var html = 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+        html += 'Hello World<br />';
+//        setTimeout(function () {
+//            box.content(html);
+//        }, 1500);
+
+
+        box.show();
+        return false;
+    }
+
+    var mbl = null;
+    function testLock() {
+        if (!mbl) mbl = new MessageBox({
+            title: 'MessageBox',
+            width: 420,
+            fullPageLink: 'http://mail.ru/',
+            closeButton: true,
+            dark: true
+        });
+        var box = mbl;
+        box.removeButtons();
+
+        box.addButton({
+            label: 'Close',
+            style: 'button_no',
+            onClick: function () {
+                box.hide();
+            }
+        });
+
+        var testButton = box.addButton({
+            label: 'Test',
+            onClick: function () {
+                lockButton(testButton);
+                console.log('lock testButton');
+                setTimeout(function(){
+                    unlockButton(testButton);
+                }, 3000);
+            }
+        });
+        //box.addControlsText('test');
+        var html = 'Hello World<br />';
+        box.content(html);
+        box.show();
+        return false;
+    }
+
+    function ShowBoxLoad() {
+        var url = '/example/buttons.html';
+        return showBox('test', url, {}, false, false, {
+            width: 600,
+            title: 'LoadURL: ' + url
+        });
+    }
+    onDomReady(function () {
+        createButton('mb1', ExampleMessageBox);
+        createButton('alertBox', function () {
+            AlertBox('test', 'test', function () {
+                alert('close')
+            });
+        });
+        createButton('confirmBox', function () {
+            ConfirmBox('test', 'test', function () {
+                alert('yes')
+            });
+        });
+    });
+</script>
+<div style="text-align: center">
+    <!--LiveInternet counter--><script type="text/javascript"><!--
+document.write("<a href='http://www.liveinternet.ru/click' "+
+        "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r"+
+        escape(document.referrer)+((typeof(screen)=="undefined")?"":
+        ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+        ";"+Math.random()+
+        "' alt='' title='LiveInternet: показано количество просмотров и"+
+        " посетителей' "+
+        "border='0' width='88' height='120'><\/a>")
+//--></script><!--/LiveInternet-->
+</div>
+
+
+</body>
+
+</html>

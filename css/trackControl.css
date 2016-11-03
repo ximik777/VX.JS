@@ -1,0 +1,161 @@
+.track_control {
+    position: relative;
+    font-size: 0;
+    padding: 7px 0 0;
+    cursor: pointer;
+}
+
+.track_control_bg_line,
+.track_control_preload_line,
+.track_control_progress_line {
+    position: relative;
+    border-radius: 2px;
+    font-size: 0;
+    height: 4px;
+}
+
+.track_control_bg_line {
+    width: 100%;
+    background: #cfe2eb;
+}
+
+.track_control_preload_line {
+    width: 0;
+    background: #9fc5d7;
+    top: -4px;
+}
+
+.track_control_progress_line {
+    width: 0;
+    background: #0f6e9a;
+    top: -8px;
+}
+
+.track_control_point {
+    background-color: #0f6e9a;
+    border: 0 none;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 8px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: -4px;
+    top: -2px;
+    width: 8px;
+    display: none;
+}
+
+.track_control.over .track_control_point {
+    display: block;
+}
+
+.track_control_hint {
+    position: absolute;
+    background: rgba(159, 197, 215, 0.9);
+    border-radius: 3px;
+    color: #0f6e9a;
+    font-size: 11px;
+    padding: 2px 5px 3px;
+}
+
+.track_control_hint_footer {
+    background-image: url(../images/audio_icons_jt.png?1);
+    background-repeat: no-repeat;
+    background-position: -227px -59px;
+    width: 7px;
+    height: 4px;
+    position: absolute;
+    bottom: -4px;
+    opacity: 0.9;
+}
+
+.is_2x .track_control_hint_footer {
+    background-image: url(../images/audio_icons_jt_2x.png?1);
+    background-size: 257px 63px;
+}
+
+.track_control.progress .track_control_preload_line {
+    background: #0f6e9a;
+}
+
+.progress .track_control_point {
+    box-shadow: 0 1px 4px #FFFFFF;
+}
+
+.playpause {
+    width: 22px;
+    height: 23px;
+    font-size: 0;
+    background-image: url(../images/audio_icons_jt.png?1);
+    background-repeat: no-repeat;
+    background-position: 0 -25px;
+    cursor: pointer;
+}
+
+.playpause.play {
+    background-position: -72px -25px;
+}
+
+.playpause.pause {
+    background-position: 0 -25px;
+}
+
+.playpause.play.hover {
+    background-position: -96px -25px;
+}
+
+.playpause.pause.hover {
+    background-position: -24px -25px;
+}
+
+.playpause.play.active {
+    background-position: -120px -25px;
+}
+
+.playpause.pause.active {
+    background-position: -48px -25px;
+}
+
+.is_2x .playpause {
+    background-image: url(../images/audio_icons_jt_2x.png?1);
+    background-size: 257px 63px;
+}
+
+.lastnext .last,
+.lastnext .next {
+    height: 11px;
+    width: 13px;
+    float: left;
+    margin: 0;
+    background-image: url(../images/audio_icons_jt.png?1);
+    background-repeat: no-repeat;
+    background-position: -3px -52px;
+    cursor: pointer;
+    opacity: 0.85;
+}
+
+.lastnext .last:hover,
+.lastnext .next:hover {
+    opacity: 0.9;
+}
+
+.lastnext .last:active,
+.lastnext .next:active {
+    opacity: 1;
+}
+
+.lastnext .last {
+    background-position: -3px -52px;
+}
+
+.lastnext .next {
+    background-position: -18px -52px;
+    margin-left: 5px;
+}
+
+.is_2x .lastnext .last,
+.is_2x .lastnext .next {
+    background-image: url(../images/audio_icons_jt_2x.png?1);
+    background-size: 257px 63px;
+}

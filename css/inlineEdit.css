@@ -1,0 +1,72 @@
+.inline_edit_target,
+.inlInput {
+    font-family: Tahoma;
+    font-size: 11px;
+}
+.inlInput {
+    -webkit-appearance: none;
+    background: #FFF;
+    color: #000;
+    border: 1px solid #C0CAD5;
+    margin: 0;
+    padding: 3px;
+}
+
+
+.inlContainer {
+    position: absolute;
+    display: none;
+    z-index: 10
+}
+
+.inlMainDiv {
+    background: #c5ced7;
+    background: rgba(197,206,215, 0.75);
+    padding: 5px;
+    border-radius: 1px;
+}
+
+.inlWrap {
+    background: #f2f2f2;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    -khtml-border-radius: 1px;
+    border-radius: 1px;
+    padding: 7px;
+}
+
+.inlContentTable table {
+    border: 0;
+    border-collapse: collapse
+}
+
+.inlContentTable td {
+    border: 0;
+    padding: 0
+}
+
+.inlContentTable {
+    width: 100%;
+}
+
+.inlDelimiter {
+    width: 7px;
+    display: table;
+}
+.inlButtonOk,
+.inlButtonCancel {
+    width: 50%;
+}
+
+.inlButtonOk .flat_button,
+.inlButtonCancel .flat_button {
+    margin-top: 7px;
+}
+
+.inlInput {
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100% !important;
+}

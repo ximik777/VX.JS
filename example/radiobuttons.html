@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Radio Buttons</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png"/>
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32"/>
+    <link type="text/css" rel="stylesheet" href="/css/example.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/radiobuttons.css"/>
+    <script type="text/javascript" src="/js/core.js"></script>
+    <script type="text/javascript" src="/js/events.js"></script>
+    <script type="text/javascript" src="/js/dom.js"></script>
+    <script type="text/javascript" src="/js/cc.js"></script>
+    <script type="text/javascript" src="/js/radiobuttons.js"></script>
+</head>
+
+<body>
+<div class="label"></div>
+<div class="labeled">
+    <input type="hidden" id="radio1" value="full"/>
+    <input type="radio" id="radio11" name="radio1" value="full" checked="checked"/>
+    <input type="radio" id="radio12" name="radio1" value="button"/>
+    <input type="radio" id="radio13" name="radio1" value="mini"/>
+    <input type="radio" id="radio14" name="radio1" value="vertical"/>
+</div>
+<div class="labeleds" id="radio1_change"></div>
+<br class="cl">
+<br/><br/>
+<div class="label"></div>
+<div class="labeled">
+    <a href="#" onclick="toggleStyle();return false">toggleStyle</a>
+</div>
+<br class="cl">
+<script type="text/javascript">
+    var r;
+    onDomReady(function () {
+        r = new Radiobuttons(ge('radio1'), [
+            [1, 'Button with text counter'],
+            [2, 'Button with mini counter'],
+            [3, 'Mini button'],
+            [4, 'Mini button with counter at the top']
+        ], {
+            width: 200,
+            onChange: function () {
+            },
+            selected: 'full'
+        });
+    });
+</script>
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+.checkbox_container {
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.checkbox_container table {
+    width: 100%;
+    z-index: 0;
+    margin: 5px 0 5px 0
+}
+
+.checkbox_container table td {
+    vertical-align: middle
+}
+
+.checkbox_container table td.checkbox {
+    width: 20px;
+    padding: 2px 0 0
+}
+
+.checkbox_container table td.checkbox_label {
+    line-height: 140%;
+    padding: 0 0 0 3px;
+    text-align: left;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.checkbox_container table td.checkbox_label {
+    padding-top: 1px
+}
+
+.checkbox_container table td .checkbox_on,
+.checkbox_container table td .checkbox_off,
+.checkbox_container table td .checkbox_on_over,
+.checkbox_container table td .checkbox_off_over {
+    height: 14px;
+    width: 15px;
+    overflow: hidden;
+    background: transparent url(../images/sprite.svg) 0 0 no-repeat;
+}
+
+.checkbox_container.checkbox_circle table td .checkbox_on,
+.checkbox_container.checkbox_circle table td .checkbox_off,
+.checkbox_container.checkbox_circle table td .checkbox_on_over,
+.checkbox_container.checkbox_circle table td .checkbox_off_over {
+    background-position: 0 -56px
+}
+
+.checkbox_container table td .checkbox_on {
+    background-position: 0 -14px
+}
+
+.checkbox_container table td .checkbox_off_over {
+    background-position: 0 -28px
+}
+
+.checkbox_container table td .checkbox_on_over {
+    background-position: 0 -42px
+}
+
+.checkbox_container.checkbox_circle table td .checkbox_on {
+    background-position: 0 -70px
+}
+
+.checkbox_container.checkbox_circle table td .checkbox_off_over {
+    background-position: 0 -84px
+}
+
+.checkbox_container.checkbox_circle table td .checkbox_on_over {
+    background-position: 0 -98px
+}
+
+/*.is_2x .checkbox_container table td .checkbox_on,*/
+/*.is_2x .checkbox_container table td .checkbox_off,*/
+/*.is_2x .checkbox_container table td .checkbox_on_over,*/
+/*.is_2x .checkbox_container table td .checkbox_off_over {*/
+/*background-image:url("/images/check_jt_2x.png");*/
+/*background-size:15px 168px;*/
+/*}*/
+
+.checkbox_container.disabled {
+    cursor: default;
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+
+.checkbox_container.disabled td.checkbox div.checkbox_on_over {
+    background-position: 0 -14px
+}
+
+.checkbox_container.disabled td.checkbox div.checkbox_off_over {
+    background-position: 0 0
+}
+
+.checkbox_container.disabled.checkbox_circle td.checkbox div.checkbox_on_over {
+    background-position: 0 -70px
+}
+
+.checkbox_container.disabled.checkbox_circle td.checkbox div.checkbox_off_over {
+    background-position: 0 -56px
+}

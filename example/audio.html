@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Audio</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png"/>
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32"/>
+    <link type="text/css" rel="stylesheet" href="../css/example.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/slider.css"/>
+    <script type="text/javascript" src="../js/core.js"></script>
+    <script type="text/javascript" src="../js/events.js"></script>
+    <script type="text/javascript" src="../js/dom.js"></script>
+    <script type="text/javascript" src="../js/cc.js"></script>
+    <script type="text/javascript" src="../js/audioPlayer.js"></script>
+    <script type="text/javascript">
+        var ap = null;
+
+        var secToTime = function (sec) {
+            var p = sec,
+                    m = Math.floor(p / 60),
+                    s = Math.floor(p % 60),
+                    time = (m + ':' + (s < 10 ? '0' : '') + s);
+            return time;
+        };
+
+        var getHintDuration = function (duration, percent) {
+            var p = duration * percent,
+                    m = Math.floor(p / 60),
+                    s = Math.floor(p % 60),
+                    time = (m + ':' + (s < 10 ? '0' : '') + s);
+            return time;
+        };
+        onDomReady(function () {
+            ap = new Audio({
+                setButton: 'playpause',
+                onReady: function () {
+                    ge('status').innerHTML = 'Status: ready';
+                },
+                onError: function (e) {
+                    switch (e.error) {
+                        case 1:
+                            ge('status').innerHTML = 'Status: Error! Flash player is not installed';
+                            break;
+                        case 9:
+                            ge('status').innerHTML = 'Status: Error! File is not exist';
+                            break;
+                    }
+
+                },
+                onLoadProgress: function (load, duration) {
+                    ge('duration').innerHTML = secToTime(duration);
+                    ge('load').innerHTML = 'Load: ' + Math.ceil(load * 100) + '%';
+                    ge('status').innerHTML = 'Status: Load';
+                },
+                onPlayed: function () {
+                    ge('status').innerHTML = 'Status: Played';
+                },
+                onPaused: function () {
+                    ge('status').innerHTML = 'Status: Paused';
+                },
+                onPlayProgress: function (percent) {
+                    ge('progress_percent').innerHTML = 'Play Percent: ' + Math.ceil(percent * 100) + '%';
+                    ge('progress_time').innerHTML = getHintDuration(ap.duration, percent);
+                    ge('status').innerHTML = ap.played ? 'Status: Played' : 'Status: Paused';
+                },
+                onTrackEnded: function () {
+                    ge('status').innerHTML = 'Status: Ended';
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+<div style="padding: 30px;">
+    <div id="status"></div>
+    <div id="duration"></div>
+    <div id="load"></div>
+    <div id="progress_percent"></div>
+    <div id="progress_time"></div>
+    <br/><br/>
+    <a href="#" onclick="ap.load('/mp3/test.mp3'); return false;">Load file1</a><br/>
+    <a href="#" onclick="ap.play('/mp3/test2.mp3'); return false;">Play file2</a><br/>
+    <a href="#" onclick="ap.play(); return false;">Play</a><br/>
+    <a href="#" onclick="ap.pause(); return false;">Pause</a><br/>
+    <a href="#" onclick="ap.skipTo(0.9); return false;">skipTo 90%</a><br/>
+    <a href="#" onclick="ap.skipTo(0.3); return false;">skipTo 30%</a><br/>
+    <div class="label"></div>
+    <div class="labeled">
+        <div id="playpause"></div>
+    </div>
+    <br class="cl">
+    <div class="label"></div>
+    <div class="labeled">
+        <div class="lastnext cf">
+            <div class="last"></div>
+            <div class="next"></div>
+        </div>
+    </div>
+    <br class="cl">
+</div>
+<div class="label"></div>
+<div class="labeled">
+    <a href="#" onclick="toggleStyle();return false">toggleStyle</a>
+</div>
+<br class="cl">
+
+
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

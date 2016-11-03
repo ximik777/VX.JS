@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Daypicker</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png"/>
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32"/>
+    <link type="text/css" rel="stylesheet" href="../css/example.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/common.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/selectors.css"/>
+    <script type="text/javascript" src="../js/core.js"></script>
+    <script type="text/javascript" src="../js/langs.js"></script>
+    <script type="text/javascript" src="../js/events.js"></script>
+    <script type="text/javascript" src="../js/dom.js"></script>
+    <script type="text/javascript" src="../js/cc.js"></script>
+    <script type="text/javascript" src="../js/selectors.js"></script>
+    <script type="text/javascript" src="../js/indexer.js"></script>
+    <script type="text/javascript" src="../js/cache.js"></script>
+    <script type="text/javascript" src="../js/daypicker.js"></script>
+
+</head>
+
+<body>
+
+<div class="label">Daypicker:</div>
+<div class="labeled"><input type="text" id="dp" value=""/></div>
+<br class="cl"/>
+<br/>
+<div class="label"></div>
+<div class="labeled">
+    <a href="#" onclick="toggleStyle();return false">toggleStyle</a>
+</div>
+<br class="cl">
+<script type="text/javascript">
+
+
+    onDomReady(function () {
+
+
+        new Daypicker(ge('dp'), {
+            onChange: function (h, m, t) {
+                console.log(h, m, t);
+            }
+        });
+
+
+    });
+
+</script>
+
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

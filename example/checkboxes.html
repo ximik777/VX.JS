@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Checkboxes</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png"/>
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32"/>
+    <link type="text/css" rel="stylesheet" href="/css/example.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/checkboxes.css"/>
+    <script type="text/javascript" src="/js/core.js"></script>
+    <script type="text/javascript" src="/js/events.js"></script>
+    <script type="text/javascript" src="/js/dom.js"></script>
+    <script type="text/javascript" src="/js/cc.js"></script>
+    <script type="text/javascript" src="/js/checkboxes.js"></script>
+</head>
+
+<body>
+<div class="label"></div>
+<div class="labeled">
+    <input type="text" id="check0" name="check0" value=""/>
+</div>
+<br class="cl"/>
+<div class="label"></div>
+<div class="labeled">
+    <input type="text" id="check1" name="check1" value=""/>
+</div>
+<div class="labeleds" id="check1_change"></div>
+<br class="cl"/>
+<div class="label"></div>
+<div class="labeled">
+    <input type="text" id="check2" name="check2" value=""/>
+</div>
+<div class="labeleds" id="check2_change"></div>
+<br class="cl"/>
+<div class="label"></div>
+<div class="labeled">
+    <input type="text" id="check3" name="check3" value=""/>
+</div>
+<div class="labeleds" id="check3_change"></div>
+<br class="cl"/>
+
+
+<div class="label"></div>
+<div class="labeled">
+    <input type="text" id="check4" name="check4" value=""/>
+</div>
+<br class="cl"/>
+<div class="label"></div>
+<div class="labeled">
+    <input type="text" id="check5" name="check5" value=""/>
+</div>
+<div class="labeleds" id="check5_change"></div>
+<br class="cl"/>
+<div class="label"></div>
+<div class="labeled">
+    <input type="text" id="check6" name="check6" value=""/>
+</div>
+<div class="labeleds" id="check6_change"></div>
+<br class="cl"/>
+<div class="label"></div>
+<div class="labeled">
+    <input type="text" id="check7" name="check7" value=""/>
+</div>
+<div class="labeleds" id="check7_change"></div>
+<br class="cl"/>
+
+
+<script type="text/javascript">
+    var ch2, ch3, ch6, ch7;
+    onDomReady(function () {
+        new Checkbox(ge('check0'), {
+            width: 200,
+            checked: 1,
+            label: 'Checkbox'
+        });
+
+        new Checkbox(ge('check1'), {
+            width: 200,
+            checked: 0,
+            label: 'Checkbox',
+            onChange: function (v) {
+                alert(v ? 'true' : false);
+            }
+        });
+        ch2 = new Checkbox(ge('check2'), {
+            width: 200,
+            checked: 0,
+            label: 'Checkbox2',
+            onChange: function (v) {
+                alert(v ? 'true' : false);
+            }
+        });
+        ch2.disable(true);
+        ch3 = new Checkbox(ge('check3'), {
+            width: 200,
+            checked: 1,
+            label: 'Checkbox3',
+            onChange: function (v) {
+                alert(v ? 'true' : false);
+            }
+        });
+        ch3.disable(true);
+
+
+        new Checkbox(ge('check4'), {
+            width: 200,
+            checked: 1,
+            label: 'Checkbox 4',
+            circle: true
+        });
+
+        new Checkbox(ge('check5'), {
+            width: 200,
+            checked: 0,
+            label: 'Checkbox 5',
+            circle: true,
+            onChange: function (v) {
+                alert(v ? 'true' : false);
+            }
+        });
+        ch6 = new Checkbox(ge('check6'), {
+            width: 200,
+            checked: 0,
+            label: 'Checkbox6',
+            circle: true,
+            onChange: function (v) {
+                alert(v ? 'true' : false);
+            }
+        });
+        ch6.disable(true);
+        ch7 = new Checkbox(ge('check7'), {
+            width: 200,
+            checked: 1,
+            label: 'Checkbox7',
+            circle: true,
+            onChange: function (v) {
+                alert(v ? 'true' : false);
+            }
+        });
+        ch7.disable(true);
+    });
+</script>
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Selectors</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png"/>
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32"/>
+    <link type="text/css" rel="stylesheet" href="/css/example.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/selectors.css"/>
+    <script type="text/javascript" src="/js/core.js"></script>
+    <script type="text/javascript" src="/js/langs.js"></script>
+    <script type="text/javascript" src="/js/events.js"></script>
+    <script type="text/javascript" src="/js/dom.js"></script>
+    <script type="text/javascript" src="/js/ajax.js"></script>
+    <script type="text/javascript" src="/js/cc.js"></script>
+    <script type="text/javascript" src="/js/selectors.js"></script>
+    <script type="text/javascript" src="/js/indexer.js"></script>
+    <script type="text/javascript" src="/js/cache.js"></script>
+</head>
+
+<body>
+<div class="label">Dropdown:</div>
+<div class="labeled">
+    <input type="text" id="dropdown" name="dropdown" value=""/>
+</div>
+<div class="labeleds" id="dropdown_change"></div>
+<br class="cl">
+<div class="label">Dropdown Disable:</div>
+<div class="labeled">
+    <input type="text" id="dropdown2" name="dropdown2" value=""/>
+</div>
+<div class="labeleds" id="dropdown_change2"></div>
+<br class="cl">
+<div class="label">Autocomplete:</div>
+<div class="labeled">
+    <input type="text" id="autocomplete" name="autocomplete" value=""/>
+</div>
+<div class="labeleds" id="autocomplete_change"></div>
+<br class="cl">
+<div class="label">Autocomplete Custom:</div>
+<div class="labeled">
+    <input type="text" id="custom" name="custom" value=""/>
+</div>
+<div class="labeleds" id="custom_change"></div>
+<br class="cl">
+<div class="label">Multiselect:</div>
+<div class="labeled">
+    <input type="text" id="multisel" name="multisel" value=""/>
+</div>
+<div class="labeleds" id="multisel_change"></div>
+<br class="cl">
+<div class="label">Multiselect Autocomplete:</div>
+<div class="labeled">
+    <input type="text" id="multiselauto" name="multiselauto" value=""/>
+</div>
+<div class="labeleds" id="multiselauto_change"></div>
+<br class="cl">
+<div class="label">Autocomplete Ajax:</div>
+<div class="labeled">
+    <input type="text" id="autoajax" name="autoajax" value=""/>
+</div>
+<div class="labeleds" id="autoajax_change"></div>
+<br class="cl">
+<div class="label">Selector:</div>
+<div class="labeled">
+    <input type="text" id="selectors" name="selectors" value=""/>
+</div>
+<div class="labeleds" id="selectors_change"></div>
+<br class="cl">
+<div class="label">Dropdown Big:</div>
+<div class="labeled">
+    <input type="text" id="dropdown_big" name="dropdown" value=""/>
+</div>
+<div class="labeleds" id="dropdown_big_change"></div>
+<br class="cl">
+<div class="label"></div>
+<div class="labeled">
+    <a href="#" onclick="toggleStyle();return false">toggleStyle</a>
+</div>
+
+<br class="cl">
+
+<script type="text/javascript">
+    var Data = {
+        sex: [
+            [0, 'Пол не выбран'],
+            [1, 'Женской'],
+            [1, 'Мужской']
+        ],
+        city: [
+            [1, 'Абакан'],
+            [2, 'Азов'],
+            [3, 'Альметьевск'],
+            [4, 'Ангарск'],
+            [5, 'Арзамас'],
+            [6, 'Армавир'],
+            [7, 'Архангельск'],
+            [8, 'Астрахань'],
+            [9, 'Ачинск'],
+            [10, 'Барнаул'],
+            [11, 'Белгород'],
+            [12, 'Бийск'],
+            [13, 'Благовещенск'],
+            [14, 'Братск'],
+            [15, 'Брянск'],
+            [16, 'Великие Луки'],
+            [17, 'Великий Новгород'],
+            [18, 'Владивосток'],
+            [19, 'Владикавказ'],
+            [20, 'Владимир'],
+            [21, 'Волгоград'],
+            [22, 'Волгодонск'],
+            [23, 'Волжский'],
+            [24, 'Вологда'],
+            [25, 'Воркута'],
+            [26, 'Воронеж'],
+            [27, 'Грозный'],
+            [28, 'Дзержинск'],
+            [29, 'Екатеринбург'],
+            [30, 'Елец'],
+            [31, 'Ессентуки'],
+            [32, 'Иваново'],
+            [33, 'Ижевск'],
+            [34, 'Иркутск'],
+            [35, 'Йошкар-Ола'],
+            [36, 'Казань'],
+            [37, 'Калининград'],
+            [38, 'Калуга'],
+            [39, 'Камышин'],
+            [40, 'Кемерово'],
+            [41, 'Киров'],
+            [42, 'Кисловодск'],
+            [43, 'Ковров'],
+            [44, 'Коломна'],
+            [45, 'Комсомольск-на-Амуре'],
+            [46, 'Кострома'],
+            [47, 'Красногорск'],
+            [48, 'Краснодар'],
+            [49, 'Красноярск'],
+            [50, 'Курган'],
+            [51, 'Курск'],
+            [52, 'Кызыл'],
+            [53, 'Липецк'],
+            [54, 'Магадан'],
+            [55, 'Магнитогорск'],
+            [56, 'Майкоп'],
+            [57, 'Междуреченск'],
+            [58, 'Миасс'],
+            [59, 'Москва'],
+            [60, 'Мурманск'],
+            [61, 'Муром'],
+            [62, 'Мытищи'],
+            [63, 'Набережные Челны'],
+            [64, 'Назрань'],
+            [65, 'Нальчик'],
+            [66, 'Находка'],
+            [67, 'Нефтекамск'],
+            [68, 'Нефтеюганск'],
+            [69, 'Нижневартовск'],
+            [70, 'Нижнекамск'],
+            [71, 'Нижний Новгород'],
+            [72, 'Нижний Тагил'],
+            [73, 'Новокузнецк'],
+            [74, 'Новокуйбышевск'],
+            [75, 'Новороссийск'],
+            [76, 'Новосибирск'],
+            [77, 'Новоуральск'],
+            [78, 'Новочеркасск'],
+            [79, 'Новый Уренгой'],
+            [80, 'Норильск'],
+            [81, 'Ноябрьск'],
+            [82, 'Обнинск'],
+            [83, 'Одинцово'],
+            [84, 'Омск'],
+            [85, 'Орел'],
+            [86, 'Оренбург'],
+            [87, 'Орехово-Зуево'],
+            [88, 'Пенза'],
+            [89, 'Пермь'],
+            [90, 'Петрозаводск'],
+            [91, 'Петропавловск-Камчатский'],
+            [92, 'Псков'],
+            [93, 'Пятигорск'],
+            [94, 'Ростов-на-Дону'],
+            [95, 'Рыбинск'],
+            [96, 'Рязань'],
+            [97, 'Самара'],
+            [98, 'Санкт-Петербург'],
+            [99, 'Саранск'],
+            [100, 'Саратов'],
+            [101, 'Сергиев Посад'],
+            [102, 'Серпухов'],
+            [103, 'Смоленск'],
+            [104, 'Соликамск'],
+            [105, 'Сочи'],
+            [106, 'Ставрополь'],
+            [107, 'Старый Оскол'],
+            [108, 'Стерлитамак'],
+            [109, 'Сызрань'],
+            [110, 'Сыктывкар'],
+            [111, 'Таганрог'],
+            [112, 'Тамбов'],
+            [113, 'Тверь'],
+            [156, 'тестты'],
+            [114, 'Тобольск'],
+            [115, 'Тольятти'],
+            [116, 'Томск'],
+            [117, 'Туапсе'],
+            [118, 'Тюмень'],
+            [119, 'Улан-Удэ'],
+            [120, 'Ульяновск'],
+            [121, 'Уссурийск'],
+            [122, 'Уфа'],
+            [123, 'Ухта'],
+            [124, 'Хабаровск'],
+            [125, 'Химки'],
+            [126, 'Чебоксары'],
+            [127, 'Челябинск'],
+            [128, 'Череповец'],
+            [129, 'Чита'],
+            [130, 'Элиста'],
+            [131, 'Энгельс'],
+            [132, 'Южно-Сахалинск'],
+            [133, 'Якутск'],
+            [134, 'Ярославль']
+        ]
+    };
+    var Drops = [];
+    onDomReady(function () {
+        Drops[0] = new Dropdown(ge('dropdown'), Data.city, {
+            width: 200,
+            onChange: function (k) {
+                ge('dropdown_change').innerHTML = 'id:' + k;
+            }
+        });
+        Drops[1] = new Dropdown(ge('autocomplete'), Data.city, {
+            width: 200,
+            autocomplete: true,
+            onChange: function (k) {
+                ge('autocomplete_change').innerHTML = 'id:' + k;
+            }
+        });
+        Drops[2] = new Dropdown(ge('custom'), Data.city, {
+            width: 200,
+            autocomplete: true,
+            enableCustom: true,
+            onChange: function (k) {
+                if (k == -1) {
+                    ge('custom_change').innerHTML = 'id:' + k + ' Custom:' + ge('custom_custom').value;
+                } else {
+                    ge('custom_change').innerHTML = 'id:' + k;
+                }
+            }
+        });
+        Drops[3] = new Dropdown(ge('multisel'), Data.city, {
+            width: 200,
+            multiselect: true,
+            onChange: function (k) {
+                ge('multisel_change').innerHTML = 'id:' + k;
+            }
+        });
+        Drops[4] = new Dropdown(ge('multiselauto'), Data.city, {
+            width: 200,
+            multiselect: true,
+            autocomplete: true,
+            onChange: function (k) {
+                ge('multiselauto_change').innerHTML = 'id:' + k;
+            }
+        });
+        Drops[5] = new Selector(ge('autoajax'), '/example/selector.get.js', {
+            width: 200,
+            autocomplete: true,
+            multiselect: false,
+            onChange: function (k) {
+                ge('autoajax_change').innerHTML = 'id:' + k;
+            }
+        });
+        Drops[6] = new Selector(ge('selectors'), Data.city.slice(-5, Data.city.length), {
+            width: 200,
+            dropdown: false,
+            multiselect: false,
+            enableCustom: true,
+            introText: '',
+            noResult: '',
+            placeholder: '',
+            placeholderColor: '#000',
+            onChange: function (value) {
+                if (!intval(value)) {
+                    Drops[6].clear();
+                }
+                ge('selectors_change').innerHTML = 'id:' + value;
+            }
+        });
+        Drops[7] = new Dropdown(ge('dropdown2'), Data.city, {
+            width: 200,
+            onChange: function (k) {
+                ge('dropdown_change2').innerHTML = 'id:' + k;
+            }
+        });
+        Drops[7].disable(true);
+
+        Drops[8] = new Dropdown(ge('dropdown_big'), Data.city, {
+            width: 200,
+            big: true,
+            onChange: function (k) {
+                ge('dropdown_big_change').innerHTML = 'id:' + k;
+            }
+        });
+    });
+</script>
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

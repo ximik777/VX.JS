@@ -1,0 +1,66 @@
+.fc_scrollbar_cont {
+    width: 9px;
+    height: 100%;
+    position: absolute;
+    background: rgba(200, 200, 200, 0);
+    -webkit-transition: all 150ms linear;
+    -moz-transition: all 150ms linear;
+    -o-transition: all 150ms linear;
+    transition: all 150ms linear;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.fc_scrollbar_cont.scrollbar_c_overed {
+    background: rgba(235, 235, 245, 0.4);
+    width: 11px;
+}
+
+.fc_scrollbar_inner {
+    background: #DAE1E8;
+    opacity: 0.7;
+    filter: alpha(opacity=70);
+    width: 6px;
+    height: 26px;
+    margin-left: 1px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-transition: width 150ms linear, opacity 200ms linear;
+    -moz-transition: width 150ms linear, opacity 200ms linear;
+    -o-transition: width 150ms linear, opacity 200ms linear;
+    transition: width 150ms linear, opacity 200ms linear;
+}
+
+.scrollbar_c_overed .fc_scrollbar_inner {
+    width: 8px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.fc_scrollbar_inner:hover,
+.fc_scrollbar_hovered {
+    opacity: 1;
+    filter: alpha(opacity=100);
+}
+
+.fc_scrollbar_top {
+    position: absolute;
+    height: 3px;
+    margin-top: -1px;
+    background: #555555;
+    opacity: 0.12;
+    filter: alpha(opacity=12);
+    display: none;
+}
+
+.fc_scrollbar_bottom {
+    position: absolute;
+    height: 3px;
+    margin-top: -2px;
+    background: #555555;
+    opacity: 0.12;
+    filter: alpha(opacity=12);
+}

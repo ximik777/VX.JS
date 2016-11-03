@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Slider</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png"/>
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32"/>
+    <link type="text/css" rel="stylesheet" href="../css/example.css"/>
+    <link type="text/css" rel="stylesheet" href="../css/slider.css"/>
+    <script type="text/javascript" src="../js/core.js"></script>
+    <script type="text/javascript" src="../js/events.js"></script>
+    <script type="text/javascript" src="../js/dom.js"></script>
+    <script type="text/javascript" src="../js/cc.js"></script>
+    <script type="text/javascript" src="../js/slider.js"></script>
+</head>
+
+<body>
+<div style="padding: 30px;">
+
+    <table>
+        <tr>
+            <td width="220">
+                <div id="test1"></div>
+            </td>
+            <td><span id="v1"></span><br/><br/></td>
+        </tr>
+        <tr>
+            <td>
+                <div id="test2"></div>
+            </td>
+            <td><span id="v2"></span><br/><br/></td>
+        </tr>
+        <tr>
+            <td>
+                <div id="test3"></div>
+            </td>
+            <td><span id="v3"></span><br/><br/></td>
+        </tr>
+    </table>
+
+
+</div>
+
+
+<script type="text/javascript">
+
+    onDomReady(function () {
+        new Slider(ge('test1'), {
+            width: 100,
+            size: 1,
+            value: 0,
+            onChange: function (val) {
+                ge('v1').innerHTML = val
+            },
+            formatHint: function (val) {
+                return 'Volume: ' + Math.floor(val * 100) + '%';
+            }
+        });
+
+        new Slider(ge('test2'), {
+            width: 150,
+            size: 2,
+            value: 0.5,
+            onChange: function (val) {
+                ge('v2').innerHTML = val
+            },
+            formatHint: function (val) {
+                return 'Volume: ' + Math.floor(val * 100) + '%';
+            }
+        });
+
+        new Slider(ge('test3'), {
+            width: 200,
+            size: 3,
+            value: 0.88,
+            onChange: function (val) {
+                ge('v3').innerHTML = val
+            },
+            formatHint: function (val) {
+                return 'Volume: ' + Math.floor(val * 100) + '%';
+            }
+        });
+
+    });
+</script>
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

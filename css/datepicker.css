@@ -1,0 +1,36 @@
+.datepicker_container a {
+    color: #2b587a;
+    cursor: pointer;
+    text-decoration: none
+}
+
+.datepicker_container .datepicker_control {
+    background: #fff url(../images/sprite.svg) 0 -291px no-repeat;
+    border: 1px solid #c0cad5;
+    cursor: pointer;
+}
+
+.big .datepicker_control {
+    background-position: 0 -287px;
+}
+
+.datepicker_control.disabled,
+.datepicker_control.disabled input {
+    background-color: #f2f2f2;
+    color: #777;
+    cursor: auto
+}
+
+.datepicker_container .datepicker_text {
+    border: 0 none;
+    cursor: pointer;
+    font-size: 11px;
+    margin: 0
+}
+
+.datepicker_container .cal_div {
+    position: absolute;
+    z-index: 200;
+    padding-top: 6px;
+    display: none;
+}

@@ -1,0 +1,65 @@
+.radiobtn_container {
+    cursor: pointer;
+    font-size: 11px
+}
+
+.radiobtn_container table {
+    width: 100%;
+    z-index: 0;
+    margin: 5px 0 5px 0
+}
+
+.radiobtn_container table td {
+    vertical-align: middle
+}
+
+.radiobtn_container table td.radiobtn {
+    width: 20px;
+    padding: 1px 0 0
+}
+
+.radiobtn_container table td.radiobtn_label {
+    line-height: 140%;
+    padding: 0 0 0 3px;
+    text-align: left;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.radiobtn_container input {
+    display: none
+}
+
+.radiobtn_container table td .radiobtn_on,
+.radiobtn_container table td .radiobtn_off,
+.radiobtn_container table td .radiobtn_on_over,
+.radiobtn_container table td .radiobtn_off_over {
+    height: 14px;
+    width: 15px;
+    overflow: hidden
+}
+
+.radiobtn_container table td .radiobtn_on div,
+.radiobtn_container table td .radiobtn_off div,
+.radiobtn_container table td .radiobtn_on_over div,
+.radiobtn_container table td .radiobtn_off_over div {
+    width: 14px;
+    height: 56px;
+    background: transparent url(../images/sprite.svg) 0 -112px no-repeat;
+}
+
+.radiobtn_container table td .radiobtn_on div {
+    margin-top: -14px
+}
+
+.radiobtn_container table td .radiobtn_off_over div {
+    margin-top: -28px
+}
+
+.radiobtn_container table td .radiobtn_on_over div {
+    margin-top: -42px
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Buttons</title>
+    <link rel="shortcut icon" href="/site/favicon.png?3" type="image/png"/>
+    <link rel="icon" href="/site/favicon32.png?3" sizes="32x32"/>
+    <link type="text/css" rel="stylesheet" href="/css/buttons.css"/>
+    <script type="text/javascript" src="/js/core.js"></script>
+    <script type="text/javascript" src="/js/events.js"></script>
+    <script type="text/javascript" src="/js/dom.js"></script>
+    <script type="text/javascript" src="/js/buttons.js"></script>
+</head>
+
+<body>
+
+
+<table width="100%">
+    <tr>
+        <td width="150">Button Blue:</td>
+        <td>
+            <div class="button_blue">
+                <button>Button</button>
+            </div>
+            <div class="button_gray">
+                <button>Button</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Button Big:</td>
+        <td>
+            <div class="button_blue button_big">
+                <button>Button</button>
+            </div>
+            <div class="button_gray button_big">
+                <button>Button</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Button Wide:</td>
+        <td>
+            <div class="button_blue button_wide">
+                <button>Button</button>
+            </div>
+            <div class="button_gray button_wide">
+                <button>Button</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Look Button:</td>
+        <td>
+            <div class="button_blue">
+                <button id="look_button">Button</button>
+            </div>
+            <div class="button_gray">
+                <button id="look_button2">Button</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Disable Button:</td>
+        <td>
+            <div class="button_blue">
+                <button id="disable_button">Button</button>
+            </div>
+            <div class="button_gray">
+                <button id="disable_button2">Button</button>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>Flat Buttons</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Button Flat:</td>
+        <td>
+            <button class="flat_button button_small">Button Small</button>
+            <button class="flat_button secondary button_small">Button Small</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Button Middle:</td>
+        <td>
+            <button class="flat_button">Button Middle</button>
+            <button class="flat_button secondary">Button Middle</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Button Big:</td>
+        <td>
+            <button class="flat_button button_big">Button Big</button>
+            <button class="flat_button secondary button_big">Button Big</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Button BigWidth:</td>
+        <td>
+            <button class="flat_button button_big_width">Flat Button</button>
+            <button class="flat_button secondary button_big_width">Flat Button</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Button Wide:</td>
+        <td>
+            <button class="flat_button button_wide">Flat Button</button>
+            <button class="flat_button secondary button_wide">Flat Button</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Button Lock:</td>
+        <td>
+            <button class="flat_button" id="look_button3">Flat Button</button>
+            <button class="flat_button secondary" id="look_button4">Flat Button</button>
+        </td>
+    </tr>
+    <tr>
+        <td>Button Disable:</td>
+        <td>
+            <button class="flat_button" id="disable_button3">Flat Button</button>
+            <button class="flat_button secondary" id="disable_button4">Flat Button</button>
+        </td>
+    </tr>
+</table>
+
+
+<script type="text/javascript">
+
+    onDomReady(function () {
+        lockButton(ge('look_button'));
+        lockButton(ge('look_button2'));
+        lockButton(ge('look_button3'));
+        lockButton(ge('look_button4'));
+
+
+        disableButton(ge('disable_button'), true);
+        disableButton(ge('disable_button2'), true);
+        disableButton(ge('disable_button3'), true);
+        disableButton(ge('disable_button4'), true);
+    });
+
+</script>
+<div style="text-align: center">
+    <!--LiveInternet counter-->
+    <script type="text/javascript"><!--
+    document.write("<a href='http://www.liveinternet.ru/click' " +
+            "target=_blank><img src='//counter.yadro.ru/hit?t29.1;r" +
+            escape(document.referrer) + ((typeof(screen) == "undefined") ? "" :
+            ";s" + screen.width + "*" + screen.height + "*" + (screen.colorDepth ?
+                    screen.colorDepth : screen.pixelDepth)) + ";u" + escape(document.URL) +
+            ";" + Math.random() +
+            "' alt='' title='LiveInternet: показано количество просмотров и" +
+            " посетителей' " +
+            "border='0' width='88' height='120'><\/a>")
+    //--></script><!--/LiveInternet-->
+</div>
+</body>
+
+</html>

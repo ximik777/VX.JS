@@ -1,0 +1,192 @@
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: none;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    min-width: 1000px;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    position: relative;
+    font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
+    font-size: 13px;
+    background: #e9f2f6;
+    background: rgba(15, 110, 154, 0.09);
+
+}
+
+input,
+textarea,
+select,
+button {
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 11px;
+}
+
+a, span.href {
+    color: #0c587b;
+}
+
+a:hover, span.href:hover {
+    text-decoration: none;
+}
+
+span.href {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+br.cl {
+    clear: left;
+}
+
+.cf:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+    *zoom: 1;
+}
+
+* html .cf { /* IE6 */
+    zoom: 1;
+}
+
+* + html .cf { /* IE7 */
+    zoom: 1;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.ib {
+    display: -moz-inline-stack;
+    display: inline-block;
+    _overflow: hidden;
+    *zoom: 1;
+    *display: inline;
+}
+
+ul {
+    list-style: none
+}
+
+.ac {
+    text-align: center
+}
+
+.ar {
+    text-align: right
+}
+
+.tr {
+    margin-top: 4px !important;
+}
+
+.cp {
+    cursor: pointer
+}
+
+.label, .labeled, .labeleds {
+    float: left;
+    margin-top: 4px;
+}
+
+.label {
+    width: 115px;
+    color: #6c6c6c;
+    padding: 4px 10px 0 0;
+    text-align: right;
+}
+
+.labeled {
+    min-width: 221px;
+    display: inline-block;
+}
+
+.labeleds {
+    max-width: 150px;
+    display: inline-block;
+    padding: 4px 10px 0 0;
+    margin-left: 10px;
+}
+
+input, textarea {
+    background: #FFF;
+    color: #000;
+    border: 1px solid #C0CAD5;
+    border-radius: 1px;
+    padding: 3px;
+    margin: 0;
+    width: 160px;
+
+}
+
+::-webkit-input-placeholder {
+    color: #777;
+}
+
+input:-moz-placeholder,
+textarea:-moz-placeholder {
+    color: #777;
+}
+
+input.disabled {
+    background: #F5F5F5;
+    border: solid 1px #CACACA;
+    color: #777777;
+}
+
+.big .label {
+    color: #555555;
+    padding: 8px 10px 0 0;
+    width: 195px;
+}
+
+.big input, input.big {
+    width: 210px;
+    padding: 7px 10px 8px;
+}
+
+.big textarea {
+    width: 210px;
+    padding: 4px 10px;
+    min-height: 90px;
+}
+
+.big .labeleds a,
+.big .labeleds span {
+    margin-top: 4px;
+    display: inline-block;
+}
+
+input[type="file"],
+input[type~="file"] {
+    border: none;
+    padding-bottom: 4px;
+}
+
+input[type="checkbox"],
+input[type~="checkbox"] {
+    width: auto;
+}

@@ -1,0 +1,186 @@
+a.dd_menu_target,
+.dd_menu {
+    font-size: 11px
+}
+
+a.dd_menu_target:hover {
+    text-decoration: none !important
+}
+
+a.dd_link,
+.pageBody a.dd_link {
+    background: url(../images/flydead.gif) no-repeat right 1px;
+    padding-right: 17px;
+    font-weight: normal;
+    text-decoration: none
+}
+
+.dd_menu {
+    position: absolute;
+    z-index: 1500
+}
+
+.dd_menu_header {
+    border: 1px solid #005f93;
+    position: absolute;
+    z-index: 1500;
+    cursor: pointer;
+    _margin-left: 1px
+}
+
+.vk .dd_menu_header {
+    border: 1px solid #3b6798;
+}
+
+.dd_menu_header div {
+    border-color: #3187b3;
+    border-style: solid;
+    border-width: 1px;
+    color: #fff;
+    padding: 2px 5px;
+    white-space: nowrap;
+    padding-right: 17px;
+    line-height: 1.27em;
+    *line-height: 1.18em;
+    *padding-right: 16px;
+    background: #3187b3 url(../images/flydead.gif) no-repeat right -15px;
+    *background-position: -14px right
+}
+
+.vk .dd_menu_header div {
+    border-color: #6d8fb3;
+    background: #6d8fb3 url(../images/flydead.gif) no-repeat right -15px;
+}
+
+.dd_menu_header.leftArrow div {
+    background: #6d8fb3 url(../images/flydead.gif) no-repeat 1px -15px;
+    padding-right: 5px;
+    padding-left: 16px;
+    *background-position: 14px left
+}
+
+.dd_header_hover {
+    border-color: #dae1e8;
+    opacity: .6;
+    filter: alpha(opacity=60)
+}
+
+.dd_header_hover div {
+    background: #dae1e8 url(../images/flydead.gif) no-repeat right 3px;
+    *background-position: 4px right;
+    color: #2b587a;
+    border-color: #dae1e8
+}
+
+x:-moz-any-link {
+    padding-top: 1px
+}
+
+.dd_menu_body {
+    position: absolute;
+    z-index: 1499;
+    margin-left: -1px;
+    _margin-left: 0
+}
+
+.dd_menu_rows {
+    b-order: 1px solid #5aa2b9;
+    border: 1px solid #96aabe;
+    margin: 0;
+    background: #fff;
+    position: relative;
+    z-index: 1499
+}
+
+.dd_menu_rows a {
+    background: #fff;
+    display: block;
+    line-height: 1.09em;
+    padding: 4px 6px 0 6px;
+    height: 18px;
+    *height: 17px;
+    white-space: nowrap;
+    cursor: pointer;
+    background-repeat: no-repeat
+}
+
+.dd_menu_rows a:hover,
+.dd_menu_rows a.dd_a_hover {
+    background-color: #dae2e8;
+    text-decoration: none
+}
+
+.dd_menu_rows2 {
+    column-gap: 0;
+    -moz-column-gap: 0;
+    -webkit-column-gap: 0;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid
+}
+
+.dd_menu_shad_l div,
+.dd_menu_shad_r div {
+    width: 1px
+}
+
+.dd_menu_shad_l {
+    background: #000;
+    filter: alpha(opacity=6);
+    opacity: .06;
+    overflow: hidden;
+    width: 1px
+}
+
+.dd_menu_shad_b,
+.dd_menu_shad_b2 {
+    background: #000;
+    height: 2px;
+    margin-top: -1px;
+    filter: alpha(opacity=7);
+    opacity: .07;
+    overflow: hidden;
+    position: relative;
+    z-index: 148
+}
+
+.dd_menu_shad_b2 {
+    filter: alpha(opacity=5);
+    opacity: .05
+}
+
+.dd_menu_shad_r {
+    background: #000;
+    filter: alpha(opacity=6);
+    opacity: .06;
+    overflow: hidden;
+    width: 1px
+}
+
+.dd_menu_checkable .dd_menu_rows a div {
+    width: 20px;
+    height: 20px;
+    float: left
+}
+
+.dd_menu_rows a img {
+    float: left;
+    visibility: hidden;
+    margin-right: 3px
+}
+
+.dd_menu_rows a.checked img {
+    visibility: visible
+}
+
+.is_2x .dd_menu_header.ads_dd_wide.ads_dd_header_popup div,
+.is_2x .dd_menu_header.ads_dd_wide div,
+.is_2x .dd_menu_header div,
+.is_2x .dd_menu_header.leftArrow div,
+.is_2x .dd_header_hover div {
+    background-image: url(../images/flydead_2x.gif);
+    background-size: 14px 90px
+}
+
+.is_2x .dd_menu_stype_act .dd_menu_header div {
+    background-image: none
+}
