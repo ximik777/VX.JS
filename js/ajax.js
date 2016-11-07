@@ -209,7 +209,7 @@ function q2ajx(qa) {
     return query;
 }
 
-JsonpCallbackRegister = {};
+var JsonpCallbackRegister = {};
 function Jsonp(url, data, options) {
     var onSuccess,
         onFail,

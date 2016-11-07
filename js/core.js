@@ -297,7 +297,7 @@ var reqs = {};
 
 function attachScript(id, c, callback) {
     var i, new_id = c.substr(c.indexOf('/') + 1, c.indexOf('.') - c.indexOf('/') + 2).replace(/[\/\.]/g, '_');
-    var newreqs = [];
+    var newreqs = [], req;
     for (var reqnum in reqs) {
         req = reqs[reqnum];
         if (req) {

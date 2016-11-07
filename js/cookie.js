@@ -1,4 +1,4 @@
-cookies = {
+var cookies = {
     cookies: null,
     set: function (name, value, days) {
         if (!this.cookies) this.init();

@@ -571,10 +571,10 @@ function showBandBox(message, options) {
     showBalloonBox(message, options);
 }
 
-MESSAGE_ERROR = 'error';
-MESSAGE_SUCCESS = 'success';
-MESSAGE_INFO = 'info';
-MESSAGE_NOTIFY = MESSAGE_INFO;
+var MESSAGE_ERROR = 'error',
+MESSAGE_SUCCESS = 'success',
+MESSAGE_INFO = 'info',
+MESSAGE_NOTIFY = MESSAGE_INFO,
 MESSAGE_CONFIRM = 'confirm';
 
 

@@ -1,0 +1,513 @@
+{
+  "core": {
+    "js": [
+      "js/core.js"
+    ],
+    "css": [],
+    "images": [],
+    "description": null,
+    "dependencies": [],
+    "ui": false,
+    "example": null,
+    "sort": 10
+  },
+  "events": {
+    "js": [
+      "js/events.js"
+    ],
+    "css": [],
+    "images": [],
+    "description": null,
+    "dependencies": [
+      "core",
+      "dom"
+    ],
+    "ui": false,
+    "example": null,
+    "sort": 20
+  },
+  "dom": {
+    "js": [
+      "js/dom.js"
+    ],
+    "css": [],
+    "images": [],
+    "description": null,
+    "dependencies": [
+      "core",
+      "events"
+    ],
+    "ui": false,
+    "example": null,
+    "sort": 30
+  },
+  "ajax": {
+    "js": [
+      "js/ajax.js"
+    ],
+    "css": [],
+    "images": [],
+    "description": null,
+    "dependencies": [
+      "core"
+    ],
+    "ui": false,
+    "example": null,
+    "sort": 40
+  },
+  "langs": {
+    "js": [
+      "js/langs.js"
+    ],
+    "css": [],
+    "images": [],
+    "description": null,
+    "dependencies": [
+      "core"
+    ],
+    "ui": false,
+    "example": null,
+    "sort": 50
+  },
+  "cookie": {
+    "js": [
+      "js/cookie.js"
+    ],
+    "css": [],
+    "images": [],
+    "description": null,
+    "dependencies": [],
+    "ui": false,
+    "example": null,
+    "sort": 60
+  },
+  "cc": {
+    "js": [
+      "js/cc.js"
+    ],
+    "css": [],
+    "images": [],
+    "dependencies": [
+      "core",
+      "events"
+    ],
+    "ui": false,
+    "example": null,
+    "sort": 65
+  },
+  "buttons": {
+    "js": [
+      "js/buttons.js"
+    ],
+    "css": [
+      "css/buttons.css"
+    ],
+    "images": [
+      "images/button_bg_jt.png",
+      "images/upload_inv_jt.gif",
+      "images/upload_jt.gif",
+      "images/upload_inv.gif"
+    ],
+    "description": null,
+    "dependencies": [
+      "core",
+      "events",
+      "dom"
+    ],
+    "ui": true,
+    "example": "example/buttons.html",
+    "sort": 70
+  },
+  "boxes": {
+    "js": [
+      "js/boxes.js"
+    ],
+    "css": [
+      "css/boxes.css"
+    ],
+    "images": [
+      "images/upload.gif",
+      "images/upload_jt.gif",
+      "images/layer_bg_lite.png",
+      "images/layer_bg_black.png",
+      "images/progress7.gif",
+      "images/sprite.svg",
+      "images/mv_bg.png",
+      "images/upload_2x.gif",
+      "images/upload_jt_2x.gif"
+    ],
+    "description": null,
+    "dependencies": [
+      "core",
+      "cc",
+      "events",
+      "dom",
+      "langs",
+      "ajax",
+      "buttons"
+    ],
+    "ui": true,
+    "example": "example/boxes.html",
+    "sort": 80
+  },
+  "tooltips": {
+    "js": [
+      "js/tooltips.js"
+    ],
+    "css": [
+      "css/tooltips.css"
+    ],
+    "images": [
+      "images/hide_left_2x.gif",
+      "images/tooltip_arrow_white.gif",
+      "images/tooltip_arrow_white.png",
+      "images/tooltip_arrow_white.png",
+      "images/tooltip_arrow_down.gif",
+      "images/like_tooltip_arrow.gif",
+      "images/tooltip_arrow_up.gif",
+      "images/relatives.gif",
+      "images/hide_left.gif",
+      "images/mv_bg.png",
+      "images/like_icons_bl.png",
+      "images/ttb_bg.png",
+      "images/blacktip.gif",
+      "images/blacktip_2x.gif",
+      "images/ddtooltip.png",
+      "images/ddtooltip_2x.png",
+      "images/like_icons_bl_2x.png",
+      "images/tooltip_arrow_up_2x.gif"
+    ],
+    "dependencies": [
+      "core",
+      "events",
+      "dom"
+    ],
+    "ui": true,
+    "example": "example/tooltips.html",
+    "sort": 90
+  },
+  "selectors": {
+    "js": [
+      "js/selectors.js"
+    ],
+    "css": [
+      "css/selectors.css"
+    ],
+    "images": [
+      "images/sprite.svg",
+      "images/question_s.gif",
+      "images/contact_info.png"
+    ],
+    "dependencies": [
+      "core",
+      "langs",
+      "events",
+      "dom",
+      "ajax",
+      "cc",
+      "indexer",
+      "cache"
+    ],
+    "ui": true,
+    "example": "example/selectors.html",
+    "sort": 110
+  },
+  "indexer": {
+    "js": [
+      "js/indexer.js"
+    ],
+    "css": [],
+    "images": [],
+    "dependencies": [
+      "core",
+      "cc"
+    ],
+    "ui": true,
+    "example": null,
+    "sort": 120
+  },
+  "cache": {
+    "js": [
+      "js/cache.js"
+    ],
+    "css": [],
+    "images": [],
+    "dependencies": [
+      "core",
+      "cc"
+    ],
+    "ui": true,
+    "example": null,
+    "sort": 130
+  },
+  "checkboxes": {
+    "js": [
+      "js/checkboxes.js"
+    ],
+    "css": [
+      "css/checkboxes.css"
+    ],
+    "images": [
+      "images/sprite.svg"
+    ],
+    "dependencies": [
+      "core",
+      "events",
+      "dom",
+      "cc"
+    ],
+    "ui": true,
+    "example": "example/checkboxes.html",
+    "sort": 140
+  },
+  "radiobuttons": {
+    "js": [
+      "js/radiobuttons.js"
+    ],
+    "css": [
+      "css/radiobuttons.css"
+    ],
+    "images": [
+      "images/sprite.svg"
+    ],
+    "dependencies": [
+      "core",
+      "events",
+      "dom",
+      "cc"
+    ],
+    "ui": true,
+    "example": "example/radiobuttons.html",
+    "sort": 150
+  },
+  "dropdownMenu": {
+    "js": [
+      "js/dropdownMenu.js"
+    ],
+    "css": [
+      "css/dropdownMenu.css"
+    ],
+    "images": [
+      "images/flydead.gif",
+      "images/flydead_2x.gif",
+      "images/dropdead_check.gif"
+    ],
+    "dependencies": [
+      "core",
+      "events",
+      "dom",
+      "cc"
+    ],
+    "ui": true,
+    "example": "example/dropdownMenu.html",
+    "sort": 160
+  },
+  "inlineEdit": {
+    "js": [
+      "js/inlineEdit.js"
+    ],
+    "css": [
+      "css/inlineEdit.css"
+    ],
+    "images": [],
+    "dependencies": [
+      "core",
+      "langs",
+      "events",
+      "dom",
+      "cc",
+      "buttons"
+    ],
+    "ui": true,
+    "example": "example/inlineEdit.html",
+    "sort": 170
+  },
+  "autosize": {
+    "js": [
+      "js/autosize.js"
+    ],
+    "css": [],
+    "images": [],
+    "dependencies": [
+      "core",
+      "events",
+      "dom",
+      "cc"
+    ],
+    "ui": true,
+    "example": "example/autosize.html",
+    "sort": 180
+  },
+  "calendar": {
+    "js": [
+      "js/calendar.js"
+    ],
+    "css": [
+      "css/calendar.css"
+    ],
+    "images": [
+      "images/sprite.svg"
+    ],
+    "dependencies": [
+      "core",
+      "langs",
+      "events",
+      "dom"
+    ],
+    "ui": true,
+    "example": "example/calendar.html",
+    "sort": 190
+  },
+  "datepicker": {
+    "js": [
+      "js/datepicker.js"
+    ],
+    "css": [
+      "css/datepicker.css"
+    ],
+    "images": [
+      "images/sprite.svg"
+    ],
+    "dependencies": [
+      "core",
+      "langs",
+      "events",
+      "dom",
+      "calendar"
+    ],
+    "ui": true,
+    "example": "example/datepicker.html",
+    "sort": 193
+  },
+  "timepicker": {
+    "js": [
+      "js/timepicker.js"
+    ],
+    "css": [],
+    "images": [],
+    "dependencies": [
+      "core",
+      "langs",
+      "events",
+      "dom",
+      "selectors",
+      "indexer",
+      "cache"
+    ],
+    "ui": true,
+    "example": "example/timepicker.html",
+    "sort": 195
+  },
+  "daypicker": {
+    "js": [
+      "js/daypicker.js"
+    ],
+    "css": [],
+    "images": [],
+    "dependencies": [
+      "core",
+      "langs",
+      "events",
+      "dom",
+      "selectors",
+      "indexer",
+      "cache"
+    ],
+    "ui": true,
+    "example": "example/daypicker.html",
+    "sort": 196
+  },
+  "slider": {
+    "js": [
+      "js/slider.js"
+    ],
+    "css": [
+      "css/slider.css"
+    ],
+    "images": [],
+    "dependencies": [
+      "core",
+      "events",
+      "dom",
+      "cc"
+    ],
+    "ui": true,
+    "example": "example/slider.html",
+    "sort": 200
+  },
+  "trackControl": {
+    "js": [
+      "js/trackControl.js"
+    ],
+    "css": [
+      "css/trackControl.css"
+    ],
+    "images": [
+      "audio_icons.png",
+      "audio_icons_2x.png",
+      "audio_icons_jt.png",
+      "audio_icons_jt_2x.png"
+    ],
+    "dependencies": [
+      "core",
+      "events",
+      "dom",
+      "cc"
+    ],
+    "ui": true,
+    "example": "example/trackControl.html",
+    "sort": 220
+  },
+  "audioPlayer": {
+    "js": [
+      "js/audioPlayer.js"
+    ],
+    "swf": [
+      "swf/audiojs_mp3.swf",
+      "swf/audiojs_alaw.swf"
+    ],
+    "css": [],
+    "images": [
+      "images/audio_icons.png",
+      "images/audio_icons_2x.png",
+      "images/audio_icons_jt.png",
+      "images/audio_icons_jt_2x.png"
+    ],
+    "description": "audiojs_alaw.swf Format: (.au, .wav, .wav49, .gsm, .sln, .raw, .alaw, .al, .ulaw, .ul, .mu, .pcm, .la, .lu)",
+    "dependencies": [
+      "core",
+      "events",
+      "dom",
+      "cc"
+    ],
+    "ui": true,
+    "example": "example/audioPlayer.html",
+    "sort": 230
+  },
+  "qSearch2": {
+    "js": [
+      "js/qsearch2.js"
+    ],
+    "css": [
+      "css/qsearch2.css"
+    ],
+    "images": [
+      "images/search_icon_d.gif",
+      "images/search_icon_d_2x.png",
+      "images/darr1.png",
+      "images/darr1_2x.png",
+      "images/search_small.gif"
+    ],
+    "dependencies": [
+      "core",
+      "events",
+      "dom",
+      "cc",
+      "ajax",
+      "langs"
+    ],
+    "ui": true,
+    "example": "example/qsearch2.html",
+    "sort": 240
+  }
+}
