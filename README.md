@@ -1,7 +1,7 @@
 # VX.JS
 VX JavaScript library 
 
-    nmp install 
+    npm install 
 
     bower install
 
